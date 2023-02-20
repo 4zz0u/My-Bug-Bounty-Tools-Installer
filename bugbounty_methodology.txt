@@ -8,7 +8,7 @@ assetfinder --subs-only $domain | grep $domain | anew subdomains
 
 knockpy --no-http $domain | grep $domain | anew subdomains
 
-github-subdomains -t $TOKEN -d $domain | grep -v '@' | sort -u | grep "\.$domain" | awk -F' ' '{print $2}' | anew subdomains => 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
+github-subdomains -t $TOKEN -d $domain | grep -v '@' | sort -u | grep "\.$domain" | awk -F' ' '{print $2}' | anew subdomains 
 
 findomain -t $domain -q | anew subdomains
 
@@ -67,7 +67,7 @@ naabu -rate 10000 -l hosts -silent         #SLOWER THAN MASSCAN THOUGH
 cat hosts | waybackurls | anew urls
 cat hosts | gau | anew urls
 python3 paramspider.py --domain $domain -o /dev/null | grep ^http
-python3 github-endpoint.py -t $TOKEN -d $domain         - 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
+python3 github-endpoint.py -t $TOKEN -d $domain
 
 # combinations
 ex : cat urls | gf xss |  tail
