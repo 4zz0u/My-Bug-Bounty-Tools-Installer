@@ -24,6 +24,12 @@ ln dorky /usr/bin/
 cd ..
 rm -rf degoogle
 
+git clone https://github.com/xnl-h4ck3r/xnLinkFinder.git
+cd xnLinkFinder
+python setup.py install
+cd ..
+rm -rf xnLinkFinder
+
 git clone https://github.com/elamaran619/zile.git
 mv zile/zile.py .
 chmod +x zile.py
