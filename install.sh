@@ -27,6 +27,8 @@ rm -rf degoogle
 git clone https://github.com/xnl-h4ck3r/xnLinkFinder.git
 cd xnLinkFinder
 python setup.py install
+chmod +x xnLinkFinder.py
+mv xnLinkFinder.py ..
 cd ..
 rm -rf xnLinkFinder
 
